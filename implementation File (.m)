@@ -1,0 +1,13 @@
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    if ([segue.identifier isEqualToString:@"TicketDetailSegue"]) {
+        UITableViewCell *cell=(UITableViewCell *)sender;
+        NSIndexPath *ip= [self.tableView indexPathForCell:cell];
+        Ticket *T=[self.TicketsFinal objectAtIndex:ip.row];
+        
+        ViewFour *pdvc=(ViewFour *)segue.destinationViewController;
+        pdvc.ticket=T;
+        
+    }
+}
